@@ -7,13 +7,16 @@
   </head>
   <body>
     <h1>Seja bem vindo</h1>
+    <p>Hora: {{ now }}</p>
 
     <ul>
       {% for transacao in transacoes %}
-      <li><a href="{% url 'atualizar_transacao' transacao.id %}">{{ transacao }}</a></li>
+        {% if transacao == 'Transacao 1' %}
+          <li><b>{{ transacao }}</b></li>
+        {% else %}
+          <li>{{ transacao }}</li>
+        {% endif%}
       {% endfor %}
     </ul>
-    <br/>
-    <a href="{% url 'nova_transacao' %}" >Nova transação</a>
   </body>
 </html>
